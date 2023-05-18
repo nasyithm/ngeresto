@@ -142,7 +142,7 @@ main {
 
     .card {
       box-shadow: $box-shadow;
-      
+
       .card__header {
         position: relative;
         top: 0;
@@ -200,7 +200,7 @@ main {
 }
 
 .detail {
-  padding: 0 30px;
+  padding: 0 20px;
 
   h3 {
     color: $third;
@@ -208,11 +208,8 @@ main {
 
   .detail__main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    column-gap: 30px;
-    row-gap: 20px;
-    padding: 30px;
+    row-gap: 10px;
+    padding: 20px;
     box-shadow: $box-shadow;
 
     .detail__image {
@@ -227,7 +224,8 @@ main {
       gap: 8px;
 
       .detail__name {
-        padding: 15px;
+        padding-block: 15px;
+        text-align: center;
         font-size: 25px;
         border-bottom: 1px solid;
       }
@@ -238,9 +236,6 @@ main {
     }
 
     .detail__desc {
-      grid-column-start: 1;
-      grid-column-end: 3;
-
       h3 {
         padding-bottom: 8px;
       }
@@ -249,20 +244,18 @@ main {
 
   .detail__menus {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 10px;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
     margin-top: 20px;
-    padding: 20px 30px;
+    padding: 20px;
     box-shadow: $box-shadow;
 
     h2 {
-      grid-column-start: 1;
-      grid-column-end: 3;
       padding-block: 10px;
       text-align: center;
     }
-    
-    .detail__menu{
+
+    .detail__menu {
       text-align: center;
       padding: 10px;
       border: 1px solid $primary;
@@ -285,17 +278,17 @@ main {
 
   .detail__reviews {
     margin-top: 20px;
-    padding: 20px 30px;
+    padding: 20px;
     box-shadow: $box-shadow;
 
     h2 {
-      padding-block: 10px;
+      padding: 10px 0 20px 0;
       text-align: center;
     }
-    
+
     ul {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       row-gap: 5px;
       column-gap: 10px;
     }
