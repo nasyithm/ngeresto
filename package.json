@@ -1,12 +1,14 @@
 {
   "name": "ngeresto",
   "version": "1.0.0",
-  "description": "",
+  "description": "Find The Best Restaurant You Want",
   "main": "index.js",
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "test": "karma start"
+    "test": "karma start",
+    "serve": "http-server dist",
+    "build-serve": "npm run build && npm run serve"
   },
   "keywords": [],
   "author": "Nasyith Musyafa",
@@ -24,6 +26,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "http-server": "^14.1.1",
     "jasmine-ajax": "^4.0.0",
     "jasmine-core": "^4.2.0",
     "karma": "^6.4.1",
@@ -42,6 +45,7 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
+    "idb": "^7.1.1",
     "regenerator-runtime": "^0.13.9"
   }
 }

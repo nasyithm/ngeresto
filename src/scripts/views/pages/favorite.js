@@ -1,22 +1,29 @@
-import DicodingRestaurantAPISource from '../../data/dicodingrestaurantapi-source'
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb'
 import { createRestaurantItemTemplate } from '../templates/template-creator'
 
 const Favorite = {
   async render() {
     return `
-      <div class="content favorite">
+      <article id="content" class="content favorite">
         <h2 class="content__title">Restoran Favorit</h2>
-        <div id="restaurant-list" class="content__list"></div>
-      </div>
+        <div id="favoriteDefault"></div>
+        <div id="restaurantList" class="content__list"></div>
+      </article>
     `
   },
 
   async afterRender() {
-    const restaurants = await DicodingRestaurantAPISource.listRestaurant()
-    const restaurantsContainer = document.querySelector('#restaurant-list')
-    restaurants.forEach((restaurant) => {
-      restaurantsContainer.innerHTML += createRestaurantItemTemplate(restaurant)
-    })
+    const restaurants = await FavoriteRestaurantIdb.getAllRestaurant()
+    const restaurantsContainer = document.querySelector('#restaurantList')
+    if (restaurants.length !== 0) {
+      restaurants.forEach((restaurant) => {
+        restaurantsContainer.innerHTML +=
+          createRestaurantItemTemplate(restaurant)
+      })
+    } else {
+      const favoriteDefault = document.querySelector('#favoriteDefault')
+      favoriteDefault.innerHTML = '<p>Tidak Ada Restoran</p>'
+    }
   }
 }
 

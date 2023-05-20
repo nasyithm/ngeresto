@@ -1,7 +1,7 @@
-import DicodingRestaurantAPISource from '../../data/dicodingrestaurantapi-source'
+import DicodingRestaurantApiSource from '../../data/dicodingrestaurantapi-source'
 import { createRestaurantItemTemplate } from '../templates/template-creator'
 
-const List = {
+const Home = {
   async render() {
     return `
       <div class="hero">
@@ -16,20 +16,20 @@ const List = {
           </p>
         </div>
       </div>
-      <article class="content">
+      <article id="content" class="content">
         <h2 class="content__title">Cari Restoran</h2>
-        <div id="restaurant-list" class="content__list"></div>
+        <div id="restaurantList" class="content__list"></div>
       </article>
     `
   },
 
   async afterRender() {
-    const restaurants = await DicodingRestaurantAPISource.listRestaurant()
-    const restaurantsContainer = document.querySelector('#restaurant-list')
+    const restaurants = await DicodingRestaurantApiSource.listRestaurant()
+    const restaurantsContainer = document.querySelector('#restaurantList')
     restaurants.forEach((restaurant) => {
       restaurantsContainer.innerHTML += createRestaurantItemTemplate(restaurant)
     })
   }
 }
 
-export default List
+export default Home

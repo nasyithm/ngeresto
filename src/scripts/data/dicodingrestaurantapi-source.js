@@ -1,6 +1,6 @@
 import API_ENDPOINT from '../globals/api-endpoint'
 
-class DicodingRestaurantAPISource {
+class DicodingRestaurantApiSource {
   static async listRestaurant() {
     const response = await fetch(API_ENDPOINT.LIST)
     const responseJson = await response.json()
@@ -14,4 +14,4 @@ class DicodingRestaurantAPISource {
   }
 }
 
-export default DicodingRestaurantAPISource
+export default DicodingRestaurantApiSource

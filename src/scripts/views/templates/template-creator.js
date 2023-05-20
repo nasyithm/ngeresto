@@ -13,7 +13,7 @@ const createRestaurantItemTemplate = (restaurant) => `
     <div class="card__content">
       <p class="card__rating">
           Rating :
-          <a href="#" class="card__rating__number">${restaurant.rating}</a>
+          <span class="card__rating__number">${restaurant.rating}</span>
       </p>
       <h2><a href="/#/detail/${restaurant.id}" class="card__title">${
   restaurant.name
@@ -71,7 +71,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
     </div>
   </section>
   <section class="detail__reviews">
-  <h2>Review</h2>
+    <h2>Review</h2>
     <ul>
       ${restaurant?.customerReviews
         .map(
@@ -85,7 +85,40 @@ const createRestaurantDetailTemplate = (restaurant) => `
         )
         .join('')}
     </ul>
+    <div class="review__add">
+      <h2>Tambahkan Review</h2>
+      <form class="review__form">
+        <div class="form__group">
+          <label for="inputName">Nama</label>
+          <input id="inputName" type="text">
+        </div>
+        <div class="form__group">
+          <label for="inputReview">Review</label>
+          <input id="inputReview" type="text">
+        </div>
+        <div class="form__group">
+          <button id="buttonReview" type="submit">Tambah</button>
+        </div>
+      </form>
+    </div>
   </section>
 `
 
-export { createRestaurantItemTemplate, createRestaurantDetailTemplate }
+const createLikeButtonTemplate = () => `
+  <button aria-label="like this movie" id="likeButton" class="like">
+     <i class="fa fa-star-o" aria-hidden="true"></i>
+  </button>
+`
+
+const createLikedButtonTemplate = () => `
+  <button aria-label="unlike this movie" id="likeButton" class="like">
+    <i class="fa fa-star" aria-hidden="true"></i>
+  </button>
+`
+
+export {
+  createRestaurantItemTemplate,
+  createRestaurantDetailTemplate,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate
+}
