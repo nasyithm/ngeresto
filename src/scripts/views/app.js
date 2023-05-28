@@ -22,14 +22,19 @@ class App {
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner()
     const page = routes[url]
-    this._content.innerHTML = await page.render()
-    await page.afterRender()
 
-    const skipLinkElement = document.querySelector('.skip-link')
-    skipLinkElement.addEventListener('click', (event) => {
-      event.preventDefault()
-      document.querySelector('#mainContent').focus()
-    })
+    try {
+      this._content.innerHTML = await page.render()
+      await page.afterRender()
+
+      const skipLinkElement = document.querySelector('.skip-link')
+      skipLinkElement.addEventListener('click', (event) => {
+        event.preventDefault()
+        document.querySelector('#mainContent').focus()
+      })
+    } catch (error) {
+      this._content.innerHTML = '<h2 class="errorpage">Halaman yang dituju tidak ditemukan<h2>'
+    }
   }
 }
 

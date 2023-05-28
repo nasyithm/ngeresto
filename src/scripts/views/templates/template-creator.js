@@ -7,7 +7,7 @@ const createRestaurantItemTemplate = (restaurant) => `
         restaurant.pictureId
           ? CONFIG.BASE_IMAGE_SMALL_URL + restaurant.pictureId
           : 'https://picsum.photos/id/666/800/450?grayscale'
-      }" alt="${restaurant.name}" title="${restaurant.name}">
+      }" alt="${restaurant.name}" title="${restaurant.name}" crossorigin="anonymous">
       <p class="card__city">${restaurant.city}</p>
     </div>
     <div class="card__content">
@@ -28,7 +28,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
       restaurant.pictureId
         ? CONFIG.BASE_IMAGE_MEDIUM_URL + restaurant.pictureId
         : 'https://picsum.photos/id/666/800/450?grayscale'
-    }" alt="${restaurant.name}" title="${restaurant.name}">
+    }" alt="${restaurant.name}" title="${restaurant.name}" crossorigin="anonymous">
     <div class="detail__info">
       <h2 class="detail__name">${restaurant.name}</h2>
       <h3>Rating</h3>
