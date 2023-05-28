@@ -1,4 +1,5 @@
 import DicodingRestaurantApiSource from '../../data/dicodingrestaurantapi-source'
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb'
 import UrlParser from '../../routes/url-parser'
 import AddReviewInitiator from '../../utils/add-review-initiator'
 import LikeButtonPresenter from '../../utils/like-button-presenter'
@@ -25,6 +26,7 @@ const Detail = {
 
     LikeButtonPresenter.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      favoriteRestaurant: FavoriteRestaurantIdb,
       restaurant: {
         id: restaurant.id,
         name: restaurant.name,

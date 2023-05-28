@@ -13,7 +13,7 @@ const Favorite = {
   },
 
   async afterRender() {
-    const restaurants = await FavoriteRestaurantIdb.getAllRestaurant()
+    const restaurants = await FavoriteRestaurantIdb.getAllRestaurants()
     const restaurantsContainer = document.querySelector('#restaurantList')
     if (restaurants.length !== 0) {
       restaurants.forEach((restaurant) => {
