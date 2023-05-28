@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import FavoriteRestaurantIdb from '../src/scripts/data/favorite-restaurant-idb'
-import LikeButtonInitiator from '../src/scripts/utils/like-button-initiator'
+import * as TestFactories from './helpers/testFactories'
 
 describe('Unliking A Restaurant', () => {
   const addLikeButtonContainer = () => {
@@ -17,11 +17,8 @@ describe('Unliking A Restaurant', () => {
   })
 
   it('should display unlike widget when the restaurant has been liked', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant: {
-        id: 's1knt6za9kkfw1e867'
-      }
+    await TestFactories.createLikeButtonPresenterWithRestaurant({
+      id: 's1knt6za9kkfw1e867'
     })
 
     expect(
@@ -30,11 +27,8 @@ describe('Unliking A Restaurant', () => {
   })
 
   it('should not display like widget when the movie has been liked', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant: {
-        id: 's1knt6za9kkfw1e867'
-      }
+    await TestFactories.createLikeButtonPresenterWithRestaurant({
+      id: 's1knt6za9kkfw1e867'
     })
 
     expect(
@@ -43,11 +37,8 @@ describe('Unliking A Restaurant', () => {
   })
 
   it('should be able to remove liked restaurant from the list', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant: {
-        id: 's1knt6za9kkfw1e867'
-      }
+    await TestFactories.createLikeButtonPresenterWithRestaurant({
+      id: 's1knt6za9kkfw1e867'
     })
 
     document
@@ -58,11 +49,8 @@ describe('Unliking A Restaurant', () => {
   })
 
   it('should not throw error if the unliked restaurant is not in the list', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant: {
-        id: 's1knt6za9kkfw1e867'
-      }
+    await TestFactories.createLikeButtonPresenterWithRestaurant({
+      id: 's1knt6za9kkfw1e867'
     })
 
     // hapus dulu film dari daftar film yang disukai

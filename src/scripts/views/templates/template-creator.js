@@ -104,13 +104,13 @@ const createRestaurantDetailTemplate = (restaurant) => `
   </section>
 `
 
-const createLikeButtonTemplate = () => `
+const createLikeRestaurantButtonTemplate = () => `
   <button aria-label="like this restaurant" id="likeButton" class="like">
      <i class="fa fa-star-o" aria-hidden="true"></i>
   </button>
 `
 
-const createLikedButtonTemplate = () => `
+const createUnlikeRestaurantButtonTemplate = () => `
   <button aria-label="unlike this restaurant" id="likeButton" class="like">
     <i class="fa fa-star" aria-hidden="true"></i>
   </button>
@@ -119,6 +119,6 @@ const createLikedButtonTemplate = () => `
 export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
-  createLikeButtonTemplate,
-  createLikedButtonTemplate
+  createLikeRestaurantButtonTemplate,
+  createUnlikeRestaurantButtonTemplate
 }

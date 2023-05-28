@@ -1,7 +1,7 @@
 import DicodingRestaurantApiSource from '../../data/dicodingrestaurantapi-source'
 import UrlParser from '../../routes/url-parser'
 import AddReviewInitiator from '../../utils/add-review-initiator'
-import LikeButtonInitiator from '../../utils/like-button-initiator'
+import LikeButtonPresenter from '../../utils/like-button-presenter'
 import { createRestaurantDetailTemplate } from '../templates/template-creator'
 
 const Detail = {
@@ -23,7 +23,7 @@ const Detail = {
 
     restaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant)
 
-    LikeButtonInitiator.init({
+    LikeButtonPresenter.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant: {
         id: restaurant.id,
