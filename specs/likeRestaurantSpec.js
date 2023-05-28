@@ -24,7 +24,7 @@ describe('Liking A Restaurant', () => {
     ).toBeTruthy()
   })
 
-  it('should not show the unlike button when the movie has not been liked before', async () => {
+  it('should not show the unlike button when the restaurant has not been liked before', async () => {
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant: {
@@ -36,7 +36,7 @@ describe('Liking A Restaurant', () => {
     ).toBeFalsy()
   })
 
-  it('should be able to like the movie', async () => {
+  it('should be able to like the restaurant', async () => {
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant: {
@@ -54,7 +54,7 @@ describe('Liking A Restaurant', () => {
     FavoriteRestaurantIdb.deleteRestaurant('s1knt6za9kkfw1e867')
   })
 
-  it('should not add a movie again when its already liked', async () => {
+  it('should not add a restaurant again when its already liked', async () => {
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant: {
@@ -74,5 +74,17 @@ describe('Liking A Restaurant', () => {
     ])
 
     FavoriteRestaurantIdb.deleteRestaurant('s1knt6za9kkfw1e867')
+  })
+
+  xit('should not add a restaurant when it has no id', async () => {
+    await LikeButtonInitiator.init({
+      likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      restaurant: {
+        id: 's1knt6za9kkfw1e867'
+      }
+    })
+
+    document.querySelector('#likeButton').dispatchEvent(new Event('click'))
+    expect(await FavoriteRestaurantIdb.getAllRestaurant()).toEqual([])
   })
 })
