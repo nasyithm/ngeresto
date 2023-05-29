@@ -3,7 +3,7 @@ import CONFIG from '../../globals/config'
 const createRestaurantItemTemplate = (restaurant) => `
   <div class="card">
     <div class="card__header">
-      <img class="card__thumb" src="${
+      <img class="card__thumb lazyload" src="${
         restaurant.pictureId
           ? CONFIG.BASE_IMAGE_SMALL_URL + restaurant.pictureId
           : 'https://picsum.photos/id/666/800/450?grayscale'
@@ -15,7 +15,7 @@ const createRestaurantItemTemplate = (restaurant) => `
           Rating :
           <span class="card__rating__number">${restaurant.rating}</span>
       </p>
-      <h2><a href="/#/detail/${restaurant.id}" class="card__title">${
+      <h2 class="card__title"><a href="/#/detail/${restaurant.id}">${
   restaurant.name
 }</a></h2>
       <p class="card__desc">${restaurant.description.slice(0, 150)}...</p>

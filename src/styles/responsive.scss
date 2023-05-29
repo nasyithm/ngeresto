@@ -189,6 +189,11 @@
 }
 
 @media screen and (min-width: 800px) {
+  .hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("../public/images/hero-image-medium.jpg");
+  }
+
   .content {
     margin: 10px 40px;
     .content__list {
@@ -223,6 +228,8 @@
 
 @media screen and (min-width: 1200px) {
   .hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("../public/images/hero-image-large.jpg");
     min-width: 1000px;
   }
 }

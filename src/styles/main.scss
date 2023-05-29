@@ -97,9 +97,11 @@ body {
   width: 100%;
   text-align: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../public/images/hero-image.jpg");
+    url("../public/images/hero-image-small.jpg");
   background-position: center;
   background-color: lighten($color: $secondary, $amount: 30);
+  background-repeat: no-repeat;
+  background-size: cover;
 
   .hero__inner {
     margin: 0 auto;
@@ -193,10 +195,12 @@ main {
         }
 
         .card__title {
-          padding-block: 10px;
-          color: $primary;
-          outline-color: $primary;
-          text-decoration: none;
+          a {
+            padding-block: 10px;
+            color: $primary;
+            outline-color: $primary;
+            text-decoration: none;
+          }
         }
 
         .card__review {

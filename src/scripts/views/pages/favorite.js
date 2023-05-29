@@ -22,7 +22,7 @@ const Favorite = {
       })
     } else {
       const favoriteDefault = document.querySelector('#favoriteDefault')
-      favoriteDefault.innerHTML = '<p>Tidak Ada Restoran</p>'
+      favoriteDefault.innerHTML = '<p class="restaurant-item__not__found">Tidak Ada Restoran</p>'
     }
   }
 }
