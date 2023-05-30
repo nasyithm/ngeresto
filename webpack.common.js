@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default
 const ImageminMozjpeg = require('imagemin-mozjpeg')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
@@ -7,8 +8,8 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, 'src/scripts/index.js'),
-    sw: path.resolve(__dirname, 'src/scripts/sw.js')
+    app: path.resolve(__dirname, 'src/scripts/index.js')
+    // sw: path.resolve(__dirname, 'src/scripts/sw.js')
   },
   output: {
     filename: '[name].bundle.js',
@@ -67,11 +68,14 @@ module.exports = {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
           globOptions: {
-            // CopyWebpackPlugin mengabaikan berkas hero-image.jpg yang berada di dalam folder images
+            // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder images
             ignore: ['**/images/**']
           }
         }
       ]
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      swDest: './sw.bundle.js'
     }),
     new ImageminWebpackPlugin({
       plugins: [
