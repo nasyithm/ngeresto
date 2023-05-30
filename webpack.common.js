@@ -84,7 +84,7 @@ module.exports = {
           progressive: true
         })
       ]
-    }),
+    })
     // new BundleAnalyzerPlugin()
   ]
 }
