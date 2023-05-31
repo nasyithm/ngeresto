@@ -26,7 +26,7 @@ describe('Unliking A Restaurant', () => {
     ).toBeTruthy()
   })
 
-  it('should not display like widget when the movie has been liked', async () => {
+  it('should not display like widget when the restaurant has been liked', async () => {
     await TestFactories.createLikeButtonPresenterWithRestaurant({
       id: 'rqdv5juczeskfw1e867'
     })

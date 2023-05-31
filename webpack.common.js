@@ -1,3 +1,5 @@
+/* eslint-disable prefer-regex-literals */
+
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
@@ -75,7 +77,21 @@ module.exports = {
       ]
     }),
     new WorkboxWebpackPlugin.GenerateSW({
-      swDest: './sw.bundle.js'
+      swDest: './sw.bundle.js',
+      skipWaiting: true,
+      clientsClaim: true,
+      runtimeCaching: [
+        {
+          urlPattern: new RegExp('^https://restaurant-api.dicoding.dev/'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'ngeresto-cache',
+            cacheableResponse: {
+              statuses: [0, 200]
+            }
+          }
+        }
+      ]
     }),
     new ImageminWebpackPlugin({
       plugins: [
