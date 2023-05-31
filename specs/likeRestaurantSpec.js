@@ -27,7 +27,7 @@ describe('Liking A Restaurant', () => {
     })
 
     expect(
-      document.querySelector('[aria-label="unlike this movie"]')
+      document.querySelector('[aria-label="unlike this restaurant"]')
     ).toBeFalsy()
   })
 
